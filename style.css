@@ -88,17 +88,6 @@ a:after {
   background-color: #444;
   border-color: #444;
 }
-form.signup {
-	margin-top: 30px;
-}
-form.signup button.btn {
-	text-transform: uppercase;
-	font-weight: 700;
-}
-form.signup input.form-control:focus {
-	border-color: #fd680e;
-}
-
 
 /* Nav */
 
