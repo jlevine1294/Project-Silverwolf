@@ -177,31 +177,7 @@
                 pad: 1.05,
                 tickOptions: {formatString: '$%d'}
             }
-        $.each(data, function(key, value){
-            //console.log("Comparing " + key + " with " + date);
-            //alert("Key is a " + typeof key); //string
-            //alert("Date is a " + typeof date); //string
-            
-            //console.log("Date lenght: " + date.length); //10
-            //console.log("Key lenght: " + key.length); //10
-            
-            if (key == date) {
-                match = true;
-                console.log("Found a match");
-
-                $("#loggedin h1").html(date);
-                
-                var listitem = "";
-                $.each(value, function(index, meal) {
-                   listitem += "<li><strong>"+meal.MealName+"</strong>";
-                   if(meal.MealDesc) listitem+= " - "+meal.MealDesc+"</li>";
-                });
-                $("#loggedin ul").append(listitem);
-
-                return false;
-            }else{
-                return true;
-            }
+       
         });
         
         if (match == null){
