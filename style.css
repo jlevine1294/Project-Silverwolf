@@ -11,10 +11,6 @@ body {
     -webkit-font-smoothing: antialiased;
     -webkit-overflow-scrolling: touch;
 }
-.logged {
-    padding: 40px 15px;
-}
-
 .public {
     display: block;
 }
