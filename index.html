@@ -40,7 +40,7 @@
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
            <li><a href="graphPage.html">Graph</a></li> 
-			<li><a href="#">Sign Out</a></li>
+			<li><a href="login.html" class="btn btn-primary private" id="logout">Sign Out</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -48,7 +48,7 @@
 
 	<div id="header">
 		<div class="container">
-			<div class="row">
+			<div class="logged public">
 				<div class="col-lg-6">
 					<h1>Grade Grapher</h1>
 					<h2 class="subtitle">Sign in to your Sycamore account for a look at your grades</h2>
@@ -72,6 +72,98 @@
 	</div>
 
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/bootstrap.min.js">
+    $(document).ready(function() {
+    //check to see if the access token is present in local storage
+    if ( localStorage.getItem('token') ) {
+        
+        $(".public").css("display", "none");
+        $(".private").css("display", "block");
+        
+        var me = JSON.parse ( localStorage.getItem("me") );
+        console.log(me.SchoolID);
+        
+        $.ajax({
+        url: "http://dev.sycamoreeducation.com/api/v1/School/"+me.SchoolID+"/Cafeteria",
+        type: "GET",
+        datatype: "json",
+        processData: false,
+        beforeSend: function(xhr){
+            var access_token = localStorage.getItem("token");
+            xhr.setRequestHeader('Authorization', 'Bearer '+access_token);
+        }
+        })
+        .done(function(data, statusText, xhr){
+            displayfood(data);
+        })
+        .fail(function(xhr, statusText, errorThrown) {
+            console.log("Failed to connect to API");
+            console.log(statusText);
+            console.log(xhr);
+
+        });
+    
+    }
+
+    //when logging out, clear access token and present login button
+    $("#logout").click(function(){
+        localStorage.clear();
+        $(".private").css("display", "none");
+        $(".public").css("display", "block");
+        $(".private ul").empty();
+    });
+    
+    function displayfood(data){
+        //console.log(data);
+        
+        var d = new Date();
+        var day = ("0" + d.getDate()).slice(-2);
+        var month = ("0" + (d.getMonth() + 1)).slice(-2); 
+        var year = d.getFullYear();
+
+        var date = month + "/" + day + "/" + year;
+        //console.log("Checking for this date: " + date);
+        var match;
+        
+        $.each(data, function(key, value){
+            //console.log("Comparing " + key + " with " + date);
+            //alert("Key is a " + typeof key); //string
+            //alert("Date is a " + typeof date); //string
+            
+            //console.log("Date lenght: " + date.length); //10
+            //console.log("Key lenght: " + key.length); //10
+            
+            if (key == date) {
+                match = true;
+                console.log("Found a match");
+
+                $("#loggedin h1").html(date);
+                
+                var listitem = "";
+                $.each(value, function(index, meal) {
+                   listitem += "<li><strong>"+meal.MealName+"</strong>";
+                   if(meal.MealDesc) listitem+= " - "+meal.MealDesc+"</li>";
+                });
+                $("#loggedin ul").append(listitem);
+
+                return false;
+            }else{
+                return true;
+            }
+        });
+        
+        if (match == null){
+            nolunchtoday();    
+        }
+        
+    }
+    
+    function nolunchtoday() {
+        $("#loggedin ul").append("<li>No Lunch Listed For Today</li>");
+    }
+
+});
+</script>
+
   </body>
 </html>
