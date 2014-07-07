@@ -11,6 +11,18 @@ body {
     -webkit-font-smoothing: antialiased;
     -webkit-overflow-scrolling: touch;
 }
+.logged {
+    padding: 40px 15px;
+    text-align: center;
+}
+
+.public {
+    display: block;
+}
+
+.private {
+    display: none;
+}
 
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Lato', sans-serif;
