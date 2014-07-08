@@ -153,7 +153,7 @@
             highlighter: { show: false }
         });
      
-        $('ul').bind('jqplotDataClick', function (ev, seriesIndex, pointIndex, data) {
+        $('#private ul').bind('jqplotDataClick', function (ev, seriesIndex, pointIndex, data) {
                 $('#info1').html('series: '+seriesIndex+', point: '+pointIndex+', data: '+data);
         });
         
