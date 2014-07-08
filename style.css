@@ -151,7 +151,12 @@ a.navbar-brand:hover {
     background-size: cover;
 }
 #white h1 {
+	margin-top: 60px;
+	margin-bottom: 15px;
 	color: #000000;
+	font-size: 45px;
+	font-weight: 900;
+	letter-spacing: -1px;
 }
 #header h1 {
 	margin-top: 60px;
