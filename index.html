@@ -130,7 +130,7 @@
     
     function displaygrades(data){
         //console.log(data);
-           $.jqplot.config.enablePlugins = true;
+        $.jqplot.config.enablePlugins = true;
         var s1 = [2, 6, 7, 10];
         var ticks = ['a', 'b', 'c', 'd'];
          
@@ -154,7 +154,8 @@
             function (ev, seriesIndex, pointIndex, data) {
                 $('#info1').html('series: '+seriesIndex+', point: '+pointIndex+', data: '+data);
             }
-        )};
+        );
+    });
 </script>
 
   </body>
