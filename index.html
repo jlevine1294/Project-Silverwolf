@@ -24,7 +24,7 @@
     <![endif]-->
   </head>
 
-  <body onload='displaygrades()'>
+  <body onload='displaygrades(data)'>
 
     <!-- Fixed navbar -->
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -132,7 +132,7 @@
         $(".private ul").empty();
     });
     
-    function displaygrades(){
+    function displaygrades(data){
         //console.log(data);
         $.jqplot.config.enablePlugins = true;
         var s1 = [2, 6, 7, 10];
