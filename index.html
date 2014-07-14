@@ -132,34 +132,34 @@
         $(".private ul").empty();
     });
     
-    function displaygrades(data){
-        //console.log(data);
-        $.jqplot.config.enablePlugins = true;
-        var s1 = [2, 6, 7, 10];
-        var ticks = ['a', 'b', 'c', 'd'];
-         
-        plot1 = $.jqplot('chart1', [s1], {
-            // Only animate if we're not using excanvas (not in IE 7 or IE 8)..
-            animate: !$.jqplot.use_excanvas,
-            seriesDefaults:{
-                renderer:$.jqplot.BarRenderer,
-                pointLabels: { show: true }
-            },
-            axes: {
-                xaxis: {
-                    renderer: $.jqplot.CategoryAxisRenderer,
-                    ticks: ticks
-                }
-            },
-            highlighter: { show: false }
-        });
-     
-        $('#plot1').bind('jqplotDataClick', function (ev, seriesIndex, pointIndex, data) {
-                $('#info1').html('series: '+seriesIndex+', point: '+pointIndex+', data: '+data);
-        });
-        
-     }
-        
+
+     function displaygrades() {
+  var s1 = [2, 6, 7];
+  var s2 = [7, 5, 3];
+  var s3 = [2, 3, 5];
+  var s4 = [1, 7, 2];
+   
+  // chart data
+  var dataArray = [s1, s2, s3, 24];
+   
+  // x-axis ticks
+  var ticks = ['Jan', 'Feb', 'Mar'];
+   
+  // chart rendering options
+  var options = {
+    seriesDefaults: {
+      renderer:$.jqplot.BarRenderer
+    },
+    axes: {
+      xaxis: {
+        renderer: $.jqplot.CategoryAxisRenderer,
+        ticks: ticks
+      }
+    }
+  };
+ 
+  // draw the chart
+  $.jqplot('chartDivId', dataArray, options);
 });
 </script>
 
