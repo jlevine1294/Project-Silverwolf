@@ -132,9 +132,9 @@
         $(".private ul").empty();
     });
     
-
-     function displaygrades() {
-  var s1 = [2, 6, 7];
+    function displaygrades(data){
+        //console.log(data);
+        var s1 = [2, 6, 7];
   var s2 = [7, 5, 3];
   var s3 = [2, 3, 5];
   var s4 = [1, 7, 2];
@@ -156,6 +156,10 @@
         ticks: ticks
       }
     }
+        
+     }
+     
+  
   };
  
   // draw the chart
