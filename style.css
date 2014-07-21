@@ -161,7 +161,7 @@ a.navbar-brand:hover {
 	letter-spacing: -1px;
 }
 #white div {
- 
+  width: 1000px;
   margin-left: auto;
   margin-right: auto;
 }
