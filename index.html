@@ -131,10 +131,7 @@
     function displaygrades(data){
         //console.log(data);
         var masterArray = [];
-	
-   
-
-  
+    
   $.each(data, function(index,value){
     console.log (value);
     var classes = [];
@@ -142,9 +139,23 @@
     masterArray.push(classes);
     });
    console.log(masterArray);
-   
+   $.lqplot.BarRenderer}],
+   axesDefaults: {
+      tickRenderer: $.jqplot.CanvasAxisTickRenderer ,
+      tickOptions: {
+	angle: -30,
+	fontSize: '10pt'
+      }
+   },
+   axes: {
+      xaxis: {
+	renderer: $.splot.CategoryAxisRenderer
+      }
+   }
+    });
+  });
   // chart rendering options
-  var options = {
+ /* var options = {
     seriesDefaults: {
       renderer:$.jqplot.BarRenderer
     },
@@ -167,6 +178,7 @@
  
  
 });
+*/
 </script>
 
   </body>
