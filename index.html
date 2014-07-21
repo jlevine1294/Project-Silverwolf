@@ -140,8 +140,10 @@
   var ticks = [classes];
   
   $.each(data, function(index,value){
+    console.log (value);
     classes.push = value.ClassName;
-    grades.push = value.Number;})
+    grades.push = value.Number;
+    });
    
   // chart rendering options
   var options = {
