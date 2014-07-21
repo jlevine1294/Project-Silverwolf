@@ -82,7 +82,7 @@
 		</div>	
 	</div>
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="jqplot/jquery.jqplot.min.css"> 
+    <link rel="stylesheet" type="text/css" href="jqplot/dist/jquery.jqplot.min.css"> 
     <script src="jqplot/dist/jquery.min.js" ></script>
     <script src="jqplot/dist/jquery.jqplot.min.js" ></script>    
     <script src="jqplot/dist/plugins/jqplot.barRenderer.min.js"></script>
@@ -155,11 +155,11 @@
         
      }
      
-  
+   // draw the chart
+  $.jqplot('chartDivId', dataArray, options);
   };
  
-  // draw the chart
-  $.jqplot('chartDivId', dataArray, options);
+ 
 });
 </script>
 
