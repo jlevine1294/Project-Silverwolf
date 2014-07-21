@@ -139,7 +139,10 @@
     masterArray.push(classes);
     });
    console.log(masterArray);
-   $.lqplot.BarRenderer}],
+   
+   var plot1 = $.jqplot('plot1', [masterArray], {
+      title: 'Grades',
+      series:[{renderer: $.jqplot.BarRenderer}],
    axesDefaults: {
       tickRenderer: $.jqplot.CanvasAxisTickRenderer ,
       tickOptions: {
