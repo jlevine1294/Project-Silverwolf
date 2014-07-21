@@ -130,18 +130,19 @@
     
     function displaygrades(data){
         //console.log(data);
-        var classes = [];
-	var grades = [];
+        var masterArray = [];
+	
    
 
   
   $.each(data, function(index,value){
     console.log (value);
-    classes.push(value.ClassName);
-    grades.push(value.Number);
+    var classes = [];
+    classes.push(value.ClassName, value.Number);
+    masterArray.push(classes);
     });
-   console.log(classes);
-   console.log(grades);
+   console.log(masterArray);
+   
   // chart rendering options
   var options = {
     seriesDefaults: {
