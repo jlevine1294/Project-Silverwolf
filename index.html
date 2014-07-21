@@ -24,7 +24,7 @@
     <![endif]-->
   </head>
 
-  <body onload='displaygrades(data)'>
+  <body>
 
     <!-- Fixed navbar -->
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -132,7 +132,7 @@
         $(".private ul").empty();
     });
     
-    $.fn.myFunction = function displaygrades(data){
+    function displaygrades(data){
         //console.log(data);
         var s1 = [2, 6, 7];
   var s2 = [7, 5, 3];
