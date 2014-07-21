@@ -133,11 +133,7 @@
         var classes = [];
 	var grades = [];
    
-  // chart data
-  var dataArray = [grades];
-   
-  // x-axis ticks
-  var ticks = [classes];
+
   
   $.each(data, function(index,value){
     console.log (value);
@@ -153,14 +149,14 @@
     axes: {
       xaxis: {
         renderer: $.jqplot.CategoryAxisRenderer,
-        ticks: ticks
+        ticks: classes
       }
     }
         
      }
      
    // draw the chart
-  $.jqplot('plot1', dataArray, options);
+  $.jqplot('plot1', grades, options);
   };
  
  
