@@ -130,16 +130,18 @@
     
     function displaygrades(data){
         //console.log(data);
-        var s1 = [2, 6, 7];
-	var s2 = [7, 5, 3];
-	var s3 = [2, 3, 5];
-	var s4 = [1, 7, 2];
+        var classes = [""];
+	var grades = [""];
    
   // chart data
-  var dataArray = [s1, s2, s3, s4];
+  var dataArray = [grades];
    
   // x-axis ticks
-  var ticks = ['Jan', 'Feb', 'Mar'];
+  var ticks = [classes];
+  
+  $.each(data, function(index,value)){
+    classes.push = value.className;
+    drades.push = value.Number;}
    
   // chart rendering options
   var options = {
