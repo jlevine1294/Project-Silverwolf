@@ -159,6 +159,7 @@ a.navbar-brand:hover {
 	font-size: 45px;
 	font-weight: 900;
 	letter-spacing: -1px;
+	text-align: center;
 }
 #white div {
   width: 1000px;
