@@ -157,6 +157,17 @@
    }
     });
     };
+    $.jqplot.eventListenerHooks.push(['jqplotClick', plot1ClickHandler]);
+    function plot1ClickHandler(ev, gridpos, datapos, neighbor, plot) {
+				if(plot.targetId == "#plot1") {				
+					console.log(clickhandler1)
+				
+					var column = getColumnLocation(plot,gridpos,line1.length);
+					
+					make2nd('doc'+plot.data[0][parseInt(column)][2], plot.data[0][parseInt(column)][0]);
+					console.log(clickhandler)
+				}
+			}
     });
  
 </script>
