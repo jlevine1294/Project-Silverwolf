@@ -158,6 +158,14 @@
     });
     };
     $.jqplot.eventListenerHooks.push(['jqplotClick', plot1ClickHandler]);
+    	function getColumnLocation(plot,gridpos,length)  
+	{  
+    // Get the width of the graph area minus the space taken up with axises.  
+    var insidewidth = plot.grid._width;  
+    var colwidth = insidewidth / length;  
+    var column = parseInt(gridpos.x / colwidth);    
+    return column;  
+	};
     function plot1ClickHandler(ev, gridpos, datapos, neighbor, plot) {
 				if(plot.targetId == "#plot1") {				
 					console.log("clickhandler1")
@@ -168,14 +176,6 @@
 					console.log("clickhandler")
 				}
 			 }
-	function getColumnLocation(plot,gridpos,length)  
-	{  
-    // Get the width of the graph area minus the space taken up with axises.  
-    var insidewidth = plot.grid._width;  
-    var colwidth = insidewidth / length;  
-    var column = parseInt(gridpos.x / colwidth);    
-    return column;  
-	}  		
     });
  
 </script>
