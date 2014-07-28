@@ -167,7 +167,15 @@
 					make2nd('doc'+plot.data[0][parseInt(column)][2], plot.data[0][parseInt(column)][0]);
 					console.log("clickhandler")
 				}
-			}
+			 }
+	function getColumnLocation(plot,gridpos,length)  
+	{  
+    // Get the width of the graph area minus the space taken up with axises.  
+    var insidewidth = plot.grid._width;  
+    var colwidth = insidewidth / length;  
+    var column = parseInt(gridpos.x / colwidth);    
+    return column;  
+	}  		
     });
  
 </script>
